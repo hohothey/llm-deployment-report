@@ -1,0 +1,39 @@
+2025-06-03 23:24:14,053 - INFO - 开始模型部署流程
+2025-06-03 23:24:14,073 - INFO - 开始: 创建数据目录
+2025-06-03 23:24:14,073 - INFO - 执行命令: mkdir -p /mnt/data
+2025-06-03 23:24:14,078 - INFO - 完成: 创建数据目录
+2025-06-03 23:24:14,078 - INFO - 开始下载模型: Qwen-7B-Chat
+2025-06-03 23:24:14,081 - INFO - 开始: 下载 Qwen-7B-Chat
+2025-06-03 23:24:14,084 - INFO - 执行命令: cd /mnt/data && git clone https://www.modelscope.cn/qwen/Qwen-7B-Chat.git
+2025-06-03 23:24:14,100 - ERROR - 错误: 下载 Qwen-7B-Chat
+2025-06-03 23:24:14,100 - ERROR - 错误输出: fatal: 目标路径 'Qwen-7B-Chat' 已经存在，并且不是一个空目录。
+
+2025-06-03 23:24:14,104 - INFO - 开始下载模型: ChatGLM3-6B
+2025-06-03 23:24:14,108 - INFO - 开始: 下载 ChatGLM3-6B
+2025-06-03 23:24:14,117 - INFO - 执行命令: cd /mnt/data && git clone https://www.modelscope.cn/ZhipuAI/chatglm3-6b.git
+2025-06-03 23:24:14,130 - ERROR - 错误: 下载 ChatGLM3-6B
+2025-06-03 23:24:14,130 - ERROR - 错误输出: fatal: 目标路径 'chatglm3-6b' 已经存在，并且不是一个空目录。
+
+2025-06-03 23:24:14,135 - INFO - 模型下载完成
+2025-06-03 23:24:14,139 - INFO - 开始测试模型: Qwen-7B-Chat
+2025-06-03 23:24:14,143 - INFO - 开始: 测试 Qwen-7B-Chat - 问题 1
+2025-06-03 23:24:14,151 - INFO - 执行命令: python run_qwen_cpu.py '请解释量子计算的基本原理' > report_20250603_232414/output_Qwen-7B-Chat_q1.txt 2>&1
+2025-06-03 23:37:51,374 - INFO - 完成: 测试 Qwen-7B-Chat - 问题 1
+2025-06-03 23:37:51,445 - INFO - 开始: 测试 Qwen-7B-Chat - 问题 2
+2025-06-03 23:37:51,445 - INFO - 执行命令: python run_qwen_cpu.py '鸡兔同笼，头共10个，脚共28只，问鸡兔各几只？' > report_20250603_232414/output_Qwen-7B-Chat_q2.txt 2>&1
+2025-06-04 00:00:11,050 - INFO - 完成: 测试 Qwen-7B-Chat - 问题 2
+2025-06-04 00:00:11,113 - INFO - 开始: 测试 Qwen-7B-Chat - 问题 3
+2025-06-04 00:00:11,113 - INFO - 执行命令: python run_qwen_cpu.py '请解释Transformer模型中的注意力机制' > report_20250603_232414/output_Qwen-7B-Chat_q3.txt 2>&1
+2025-06-04 00:54:35,311 - INFO - 完成: 测试 Qwen-7B-Chat - 问题 3
+2025-06-04 00:54:35,381 - INFO - 开始测试模型: ChatGLM3-6B
+2025-06-04 00:54:35,382 - INFO - 开始: 测试 ChatGLM3-6B - 问题 1
+2025-06-04 00:54:35,387 - INFO - 执行命令: python run_chatglm_cpu.py '请解释量子计算的基本原理' > report_20250603_232414/output_ChatGLM3-6B_q1.txt 2>&1
+2025-06-04 02:23:27,216 - INFO - 完成: 测试 ChatGLM3-6B - 问题 1
+2025-06-04 02:23:27,308 - INFO - 开始: 测试 ChatGLM3-6B - 问题 2
+2025-06-04 02:23:27,308 - INFO - 执行命令: python run_chatglm_cpu.py '鸡兔同笼，头共10个，脚共28只，问鸡兔各几只？' > report_20250603_232414/output_ChatGLM3-6B_q2.txt 2>&1
+2025-06-04 03:22:00,034 - INFO - 完成: 测试 ChatGLM3-6B - 问题 2
+2025-06-04 03:22:00,100 - INFO - 开始: 测试 ChatGLM3-6B - 问题 3
+2025-06-04 03:22:00,100 - INFO - 执行命令: python run_chatglm_cpu.py '请解释Transformer模型中的注意力机制' > report_20250603_232414/output_ChatGLM3-6B_q3.txt 2>&1
+2025-06-04 03:47:27,414 - INFO - 完成: 测试 ChatGLM3-6B - 问题 3
+2025-06-04 03:47:27,475 - INFO - 模型测试完成
+2025-06-04 03:47:27,633 - INFO - 分析报告生成完成

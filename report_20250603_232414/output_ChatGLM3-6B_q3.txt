@@ -1,0 +1,17 @@
+Setting eos_token is not supported, use the default one.
+Setting pad_token is not supported, use the default one.
+Setting unk_token is not supported, use the default one.
+/usr/local/lib/python3.11/site-packages/transformers/utils/generic.py:311: UserWarning: torch.utils._pytree._register_pytree_node is deprecated. Please use torch.utils._pytree.register_pytree_node instead.
+  torch.utils._pytree._register_pytree_node(
+/usr/local/lib/python3.11/site-packages/transformers/utils/generic.py:311: UserWarning: torch.utils._pytree._register_pytree_node is deprecated. Please use torch.utils._pytree.register_pytree_node instead.
+  torch.utils._pytree._register_pytree_node(
+Loading checkpoint shards:   0%|                                                                                                                            | 0/7 [00:00<?, ?it/s]Loading checkpoint shards:  14%|████████████████▌                                                                                                   | 1/7 [00:06<00:36,  6.09s/it]Loading checkpoint shards:  29%|█████████████████████████████████▏                                                                                  | 2/7 [00:11<00:28,  5.79s/it]Loading checkpoint shards:  43%|█████████████████████████████████████████████████▋                                                                  | 3/7 [00:17<00:22,  5.66s/it]Loading checkpoint shards:  57%|██████████████████████████████████████████████████████████████████▎                                                 | 4/7 [00:23<00:17,  5.87s/it]Loading checkpoint shards:  71%|██████████████████████████████████████████████████████████████████████████████████▊                                 | 5/7 [00:29<00:12,  6.13s/it]Loading checkpoint shards:  86%|███████████████████████████████████████████████████████████████████████████████████████████████████▍                | 6/7 [00:36<00:06,  6.25s/it]Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 7/7 [00:37<00:00,  4.63s/it]Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 7/7 [00:37<00:00,  5.39s/it]
+Transformer模型中的注意力机制（Attention Mechanism）是一种机制，用于在输入序列中为每个位置分配不同的权重，从而在处理序列数据时能够更好地捕捉长距离依赖关系。在Transformer模型中，注意力机制被应用于编码器（Encoder）和生成器（Generator）的多个层。
+
+注意力机制的核心思想是：给定一个查询（Query）、键（Key）和值（Value）矩阵，通过计算查询和键之间的点积，得到一个权重矩阵，然后用这个权重矩阵加权求和值矩阵，得到一个加权后的值。这个过程可以用以下公式表示：
+
+Attention(Q, K, V) = softmax(QK^T / sqrt(d_k)) * V
+
+其中，Q、K、V分别是查询、键和值矩阵，d_k是键矩阵的维度。Attention(Q, K, V)表示注意力权重，softmax函数用于将权重归一化到概率分布，QK^T表示查询和键的点积，sqrt(d_k)用于保证权重归一化的稳定性。
+
+在Transformer模型中，编码器负责输入序列的编码，生成器负责输出序列。编码器和解码器的多个层都使用了注意力机制，这使得模型能够自动学习输入序列中的长距离依赖关系，从而提高序列数据的表示能力。
